@@ -1,0 +1,35 @@
+# ================================
+# Commit Message Template
+# BlogManager (Backend + Frontend)
+# ================================
+#
+# Format:
+#   <type>(<scope>): <short summary>
+#
+# Types (choose one):
+#   feat      = new feature
+#   fix       = bug fix
+#   refactor  = code restructuring (no feature/bug)
+#   style     = formatting, css, whitespace
+#   chore     = config, build, tools, deps
+#   docs      = documentation/readme
+#   test      = adding or updating tests
+#
+# Scopes (suggestions):
+#   backend   = .NET backend
+#   frontend  = Angular frontend
+#   posts     = post-related feature
+#   db        = database / migrations
+#   css       = styles/layout
+#
+# Examples:
+#   feat(frontend): add edit post form
+#   fix(backend): correct CORS headers
+#   style(css): improve post detail layout
+#   chore: update .gitignore
+#
+# Body (optional, more detail if needed):
+#
+#
+# Footer (optional, e.g. closes #123):
+#

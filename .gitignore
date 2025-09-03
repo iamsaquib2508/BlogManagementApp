@@ -1,0 +1,65 @@
+# ===============================
+# Backend: BlogManager (C#/.NET)
+# ===============================
+
+# Build outputs
+bin/
+obj/
+Debug/
+Release/
+
+# User-specific files
+*.user
+*.suo
+*.vs/
+appsettings.Development.json
+*.http
+
+# Visual Studio cache
+*.vscode/
+
+# Rider IDE
+.idea/
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Logs
+*.log
+
+# ===============================
+# Frontend: blog-frontend (Angular/Node)
+# ===============================
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+out-tsc/
+tmp/
+.angular/
+
+# Logs
+*.log
+
+# Environment files (optional, if you have API keys etc.)
+src/environments/*.ts
+
+# ===============================
+# General / OS
+# ===============================
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE/editor
+*.swp
+*.swo
