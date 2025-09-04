@@ -1,0 +1,48 @@
+/* post-detail.component.css */
+
+.post-detail {
+    max-width: 800px;       /* keeps content from stretching too wide */
+    margin: 2rem auto;      /* center the container with spacing top/bottom */
+    padding: 1.5rem;        /* internal spacing */
+    background-color: #fff; /* white background */
+    border-radius: 8px;     /* rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* subtle shadow */
+  }
+  
+  .post-detail h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .post-detail .meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .post-detail .content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    word-break: break-word; /* prevents super long words from overflowing */
+  }
+  
+  .post-detail .btn {
+    margin-top: 1.5rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+  }
+  
+  .post-detail .btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  .post-detail .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  

@@ -1,0 +1,24 @@
+
+<h2 *ngIf="!isEditMode">Create Post</h2>
+<h2 *ngIf="isEditMode">Edit Post</h2>
+<form (ngSubmit)="savePost()" class="post-form">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input id="title" name="title" [(ngModel)]="post.title" required />
+  </div>
+
+  <div class="form-group">
+    <label for="author">Author</label>
+    <input id="author" name="author" [(ngModel)]="post.author" required  [disabled]="isEditMode"/>
+  </div>
+
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea id="content" name="content" [(ngModel)]="post.content" rows="5" required></textarea>
+  </div>
+  
+  <button type="submit" class="btn-submit">
+    {{ isEditMode ? 'Update' : 'Submit'}}
+  </button>
+</form>
+

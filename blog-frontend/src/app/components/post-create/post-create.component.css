@@ -1,0 +1,44 @@
+/* post-create.component.css */
+.post-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+input, textarea {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.btn-submit {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background: #0056b3;
+}
