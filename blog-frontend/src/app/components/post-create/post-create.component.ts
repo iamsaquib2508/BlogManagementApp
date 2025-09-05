@@ -16,13 +16,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class PostCreateComponent implements OnInit {
 
-  post : Post = {
+  emptyPost : Post = {
     id : 0,
     title : '',
     content : '',
-    author : '',
+    userName : '',
+    userId : 1,
     createdAt : '',
+    updatedAt: '',
   };
+
+  post : Post = this.emptyPost;
+
   isEditMode = false;
   postId?: number;
 
@@ -58,7 +63,7 @@ export class PostCreateComponent implements OnInit {
     } else {
       this.blogService.createPost(this.post as CreatePostDTO).subscribe({
         next: (created: Post) => {
-          this.post = { id : 0, title: '', content: '' , author: '', createdAt : ''};
+          this.post = this.emptyPost;
           this.router.navigate(['/posts']);
         },
         error: err => console.error('Error creating post', err)

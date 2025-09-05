@@ -1,7 +1,7 @@
 <div *ngIf="post" class="post-detail">
     <h2>{{ post.title }}</h2>
     <p class="meta">
-      By {{ post.author }} | {{ post.createdAt | date:'short' }}
+      By {{ post.userName }} | Posted on {{ post.createdAt | date:'medium' }} | Edited on {{ post.updatedAt | date:'medium' }}
     </p>
     <div class="content">
       {{ post.content }}

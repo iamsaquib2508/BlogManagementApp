@@ -20,7 +20,6 @@ export class PostListComponent implements OnInit {
       this.blogService.getPosts().subscribe({
         next: data => {
           this.posts = data;
-          console.log(data);
         },
         error: err => console.error('Error fetching posts', err)
       });
