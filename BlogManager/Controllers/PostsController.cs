@@ -24,7 +24,9 @@ namespace BlogManager.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PostDTO>>> GetPosts()
         {
-            var posts = await _context.Posts.ToListAsync();
+            var posts = await _context.Posts
+                            .Include(p => p.User)
+                            .ToListAsync();
             return _mapper.Map<List<PostDTO>>(posts);
         }
 
@@ -32,7 +34,9 @@ namespace BlogManager.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<PostDTO>> GetPost(int id)
         {
-            var post = await _context.Posts.FindAsync(id);
+            var post = await _context.Posts
+                                .Include(p => p.User)
+                                .FirstOrDefaultAsync(p => p.Id == id);
             if (post == null) return NotFound();
             return Ok(_mapper.Map<PostDTO>(post));
         }
@@ -53,7 +57,9 @@ namespace BlogManager.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Post>> UpdatePost(int id, [FromBody] UpdatePostDTO newPost)
         {
-            var oldPost = await _context.Posts.FindAsync(id);
+            var oldPost = await _context.Posts
+                                .Include(p => p.User)
+                                .FirstOrDefaultAsync(p => p.Id == id);
             if (oldPost == null) return NotFound();
 
             _mapper.Map(newPost, oldPost);
