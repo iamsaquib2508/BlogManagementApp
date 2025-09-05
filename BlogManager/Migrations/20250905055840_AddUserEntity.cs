@@ -43,6 +43,18 @@ namespace BlogManager.Migrations
                     table.PrimaryKey("PK_User", x => x.Id);
                 });
 
+            // Insert a default user (Id = 1)
+            migrationBuilder.InsertData(
+                table: "User",
+                columns: new[] { "Id", "Name", "Email" },
+                values: new object[] { 1, "SystemUser", "SystemUser@system.com" });
+
+            // Point all existing posts to this default user
+            migrationBuilder.Sql("UPDATE Posts SET UserId = 1 WHERE UserId = 0");
+            // Populate DateModified of all existing posts to their DateCreated value
+            migrationBuilder.Sql("UPDATE Posts SET DateModified = [DateCreated]");
+
+
             migrationBuilder.CreateIndex(
                 name: "IX_Posts_UserId",
                 table: "Posts",
