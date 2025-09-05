@@ -3,7 +3,7 @@
 export interface CreatePostDTO {
   title : string;
   content : string;
-  author : string;
+  userId : number;
 }
 
 export interface UpdatePostDTO {
