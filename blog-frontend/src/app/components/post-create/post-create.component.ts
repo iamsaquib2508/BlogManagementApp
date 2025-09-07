@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '../../services/blog.service';
+import { PostService } from '../../services/post.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CreatePostDTO, UpdatePostDTO } from '../../models/post.dtos';
@@ -32,7 +32,7 @@ export class PostCreateComponent implements OnInit {
   postId?: number;
 
 
-  constructor (private blogService : BlogService, 
+  constructor (private postService : PostService, 
     private router : Router,
     private route : ActivatedRoute,){ }
 
@@ -44,7 +44,7 @@ export class PostCreateComponent implements OnInit {
           this.isEditMode = true;
           this.postId = Number(idParam);
 
-          this.blogService.getPostById(this.postId!).subscribe(post => {
+          this.postService.getPostById(this.postId!).subscribe(post => {
             this.post = post;
           });
         }
@@ -54,14 +54,14 @@ export class PostCreateComponent implements OnInit {
   savePost() : void {
 
     if (this.isEditMode && this.postId) {
-      this.blogService.updatePost(this.postId, this.post as UpdatePostDTO).subscribe({
+      this.postService.updatePost(this.postId, this.post as UpdatePostDTO).subscribe({
         next : () => {
           this.router.navigate(['/posts', this.postId]);
         },
         error : err => console.error(`Error editing post ${this.postId}`, err)
       });
     } else {
-      this.blogService.createPost(this.post as CreatePostDTO).subscribe({
+      this.postService.createPost(this.post as CreatePostDTO).subscribe({
         next: (created: Post) => {
           this.post = this.emptyPost;
           this.router.navigate(['/posts']);

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { BlogService } from '../../services/blog.service';
+import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post.model';
 
 @Component({
@@ -14,10 +14,10 @@ import { Post } from '../../models/post.model';
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
 
-  constructor(private blogService: BlogService) { }
+  constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-      this.blogService.getPosts().subscribe({
+      this.postService.getPosts().subscribe({
         next: data => {
           this.posts = data;
         },

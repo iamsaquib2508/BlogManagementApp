@@ -8,7 +8,7 @@ import { CreatePostDTO, UpdatePostDTO } from '../models/post.dtos';
   providedIn: 'root'
 })
 
-export class BlogService {
+export class PostService {
 
   private apiUrl = 'http://localhost:5099/api/posts';
 

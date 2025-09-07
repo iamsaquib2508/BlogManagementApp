@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Post } from '../../models/post.model';
-import { BlogService } from '../../services/blog.service';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -17,12 +17,12 @@ export class PostDetailComponent {
 
   constructor (
     private route: ActivatedRoute,
-    private blogService: BlogService,
+    private postService: PostService,
   ) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    let post$ = this.blogService.getPostById(id);
+    let post$ = this.postService.getPostById(id);
     post$.subscribe(post => {
       this.post = post;
     })
