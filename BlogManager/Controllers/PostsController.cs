@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 using BlogManager.Data;
 using BlogManager.Models;
 using BlogManager.DTOs;
-using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogManager.Controllers
 {
@@ -55,7 +55,7 @@ namespace BlogManager.Controllers
 
         // PUT: api/posts/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<Post>> UpdatePost(int id, [FromBody] UpdatePostDTO newPost)
+        public async Task<ActionResult<PostDTO>> UpdatePost(int id, [FromBody] UpdatePostDTO newPost)
         {
             var oldPost = await _context.Posts
                                 .Include(p => p.User)
@@ -65,7 +65,7 @@ namespace BlogManager.Controllers
             _mapper.Map(newPost, oldPost);
             await _context.SaveChangesAsync();
 
-            return Ok(oldPost);
+            return Ok(_mapper.Map<PostDTO>(oldPost));
         }
 
         // DELETE: api/posts/5
