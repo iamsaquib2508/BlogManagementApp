@@ -8,13 +8,12 @@ namespace BlogManager.Profiles
     {
         public BlogProfile()
         {
-            // Entity -> DTO
+            // Post Mappings
             CreateMap<Post, PostDTO>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Name))
                 .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.DateCreated))
                 .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => src.DateModified));
 
-            // DTO -> Entity
             CreateMap<CreatePostDTO, Post>()
                 .ForMember(dest => dest.DateCreated, opt => opt.MapFrom(src => DateTime.UtcNow))
                 .ForMember(dest => dest.DateModified, opt => opt.MapFrom(src => DateTime.UtcNow));
@@ -23,6 +22,12 @@ namespace BlogManager.Profiles
                 .ForMember(dest => dest.UserId, opt => opt.Ignore())
                 .ForMember(dest => dest.DateCreated, opt => opt.Ignore())
                 .ForMember(dest => dest.DateModified, opt => opt.MapFrom(src => DateTime.UtcNow));
+
+            // User Mappings
+            CreateMap<User, UserDTO>();
+            CreateMap<CreateUserDTO, User>();
+            CreateMap<UpdateUserDTO, User>();
+
         }
     }
 }

@@ -49,8 +49,7 @@ namespace BlogManager.Controllers
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
 
-            var postDTO = _mapper.Map<PostDTO>(post);
-            return CreatedAtAction(nameof(GetPost), new { id = post.Id }, postDTO);
+            return CreatedAtAction(nameof(GetPost), new { id = post.Id }, _mapper.Map<PostDTO>(post));
         }
 
         // PUT: api/posts/5

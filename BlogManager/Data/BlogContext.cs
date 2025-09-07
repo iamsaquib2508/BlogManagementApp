@@ -10,5 +10,6 @@ namespace BlogManager.Data
         }
 
         public DbSet<Post> Posts { get; set; }  // Table for Posts
+        public DbSet<User> Users { get; set; }
     }
 }
